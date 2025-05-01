@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	models "github.com/lizardo-andres12/taskmanager/internal"
+	"github.com/lizardo-andres12/taskmanager/internal"
 )
 
 const values = "(id, teamId, importance, author, description, type, completed)"
