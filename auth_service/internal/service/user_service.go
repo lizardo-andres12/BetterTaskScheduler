@@ -50,7 +50,7 @@ func (us *UserService) LogIn(ctx context.Context, email string, password string)
 	token := jwt.NewWithClaims(
 		jwt.SigningMethodHS256,
 		jwt.MapClaims{
-			"userId": user.User.ID,
+			"sub": user.User.ID,
 			"exp": time.Now().Add(time.Hour * 3),
 		},
 	)
