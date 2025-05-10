@@ -1,4 +1,4 @@
-module github.com/lizardo-andres12/taskmanager
+module go.tskmgr.com
 
 go 1.24.1
 

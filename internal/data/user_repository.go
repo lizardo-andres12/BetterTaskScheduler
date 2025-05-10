@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/lizardo-andres12/taskmanager/internal"
+	"go.tskmgr.com/internal/models"
 )
 
 const userValues = "id, teamId, email, password"
