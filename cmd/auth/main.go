@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
-	"os"
+	//"os"
 	"time"
 
 	//"github.com/lizardo-andres12/taskmanager/internal"
 	//"github.com/lizardo-andres12/taskmanager/internal"
-	"github.com/golang-jwt/jwt/v5"
+	//"github.com/golang-jwt/jwt/v5"
+	models "github.com/lizardo-andres12/taskmanager/internal"
 	"github.com/lizardo-andres12/taskmanager/internal/data"
 	"github.com/lizardo-andres12/taskmanager/internal/service"
 
@@ -18,13 +19,18 @@ func TryDB(us *service.UserService) error {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second * 3)
 	defer cancel()
 
-	tokenString, err := us.LogIn(ctx, "lah@uga.edu", "abcdefgh")
+	err := us.SignUp(ctx, &models.User{
+		User: models.UserInfo{
+			Email: "lah63505@uga.edu",
+		},
+		Password: "abcdefgh",
+	})
 	if err != nil {
 		return err
 	}
-	_, err = jwt.Parse(tokenString, func(t *jwt.Token) (interface{}, error) {
-		return []byte(os.Getenv("SecretKey")), nil
-	})
+	//_, err = jwt.Parse(tokenString, func(t *jwt.Token) (any, error) {
+	//	return []byte(os.Getenv("SecretKey")), nil
+	//})
 	return nil
 }
 
